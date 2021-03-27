@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B74A232F260F80F400ADCD8D /* RouteMapsSceneKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A232E260F80F400ADCD8D /* RouteMapsSceneKit.swift */; };
+		B74A233D260F83D200ADCD8D /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A233C260F83D200ADCD8D /* RouteModel.swift */; };
+		B74A2340260F842E00ADCD8D /* RouteRealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A233F260F842E00ADCD8D /* RouteRealmController.swift */; };
+		B74A2343260F84FF00ADCD8D /* TempRouteAppending.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A2342260F84FF00ADCD8D /* TempRouteAppending.swift */; };
 		B7AE3B72260F70970008104B /* RouteMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE3B71260F70970008104B /* RouteMapsViewController.swift */; };
 		B7D26150260F5D1D003584FE /* RouteDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D26147260F5D1D003584FE /* RouteDetailPresenter.swift */; };
 		B7D26151260F5D1D003584FE /* RouteDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D26148260F5D1D003584FE /* RouteDetailWorker.swift */; };
@@ -27,6 +30,9 @@
 		697FD2BBB09DBF448AAC89B1 /* Pods_AudioGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3937A9DD037E38CD5FC60F2 /* Pods-AudioGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.debug.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.debug.xcconfig"; sourceTree = "<group>"; };
 		B74A232E260F80F400ADCD8D /* RouteMapsSceneKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapsSceneKit.swift; sourceTree = "<group>"; };
+		B74A233C260F83D200ADCD8D /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
+		B74A233F260F842E00ADCD8D /* RouteRealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteRealmController.swift; sourceTree = "<group>"; };
+		B74A2342260F84FF00ADCD8D /* TempRouteAppending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempRouteAppending.swift; sourceTree = "<group>"; };
 		B7AE3B71260F70970008104B /* RouteMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapsViewController.swift; sourceTree = "<group>"; };
 		B7D26147260F5D1D003584FE /* RouteDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailPresenter.swift; sourceTree = "<group>"; };
 		B7D26148260F5D1D003584FE /* RouteDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailWorker.swift; sourceTree = "<group>"; };
@@ -66,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				B74A232E260F80F400ADCD8D /* RouteMapsSceneKit.swift */,
+				B74A2342260F84FF00ADCD8D /* TempRouteAppending.swift */,
 			);
 			path = RouteMapsSceneKit;
 			sourceTree = "<group>";
@@ -87,6 +94,8 @@
 		B74A2333260F821E00ADCD8D /* RouteMapsNetworks */ = {
 			isa = PBXGroup;
 			children = (
+				B74A233A260F834B00ADCD8D /* Response */,
+				B74A2339260F831F00ADCD8D /* RealmModel */,
 			);
 			path = RouteMapsNetworks;
 			sourceTree = "<group>";
@@ -103,6 +112,22 @@
 			children = (
 			);
 			path = RouteARScene;
+			sourceTree = "<group>";
+		};
+		B74A2339260F831F00ADCD8D /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RealmModel;
+			sourceTree = "<group>";
+		};
+		B74A233A260F834B00ADCD8D /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				B74A233C260F83D200ADCD8D /* RouteModel.swift */,
+				B74A233F260F842E00ADCD8D /* RouteRealmController.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		B7D26145260F5CC3003584FE /* RouteDetail */ = {
@@ -296,13 +321,16 @@
 				B7ECF6D4260F392E001E6F66 /* WelcomeController.swift in Sources */,
 				B7ECF6D0260F392E001E6F66 /* AppDelegate.swift in Sources */,
 				B7ECF6D2260F392E001E6F66 /* SceneDelegate.swift in Sources */,
+				B74A233D260F83D200ADCD8D /* RouteModel.swift in Sources */,
 				B7AE3B72260F70970008104B /* RouteMapsViewController.swift in Sources */,
 				B7D26154260F5D1D003584FE /* RouteDetailViewController.swift in Sources */,
 				B7D26150260F5D1D003584FE /* RouteDetailPresenter.swift in Sources */,
 				B7D26151260F5D1D003584FE /* RouteDetailWorker.swift in Sources */,
+				B74A2343260F84FF00ADCD8D /* TempRouteAppending.swift in Sources */,
 				B74A232F260F80F400ADCD8D /* RouteMapsSceneKit.swift in Sources */,
 				B7D26153260F5D1D003584FE /* RouteDetailModels.swift in Sources */,
 				B7D26156260F5D1D003584FE /* RouteDetailInteractor.swift in Sources */,
+				B74A2340260F842E00ADCD8D /* RouteRealmController.swift in Sources */,
 				B7D26152260F5D1D003584FE /* RouteDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

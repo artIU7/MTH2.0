@@ -7,6 +7,9 @@
 
 import UIKit
 import NMAKit
+import RealmSwift
+
+let realms = RealmService.shared.realm
 
 class RouteMapsViewController: UIViewController {
     let mapView = NMAMapView()
@@ -16,6 +19,8 @@ class RouteMapsViewController: UIViewController {
         loadUISceneKit()
         //  режим кастомизации карты (настройки пользователя)
         custumisationMap(type: true)
+        //
+        initrealm()
         // Do any additional setup after loading the view.
     }
     // добавляем карту на вьюху
@@ -39,7 +44,15 @@ class RouteMapsViewController: UIViewController {
     func configMap() {
         mapView.set(geoCenter: NMAGeoCoordinates(latitude: 55.716908, longitude: 37.562283), animation: .linear)
     }
-
+    func initrealm() {
+        var routes = try! Realm().objects(RouteModel.self)
+        if routes.isEmpty {
+            routes.map({
+                RealmService.shared.insertObject($0)
+        })
+        }
+    }
+   
     /*
     // MARK: - Navigation
 
