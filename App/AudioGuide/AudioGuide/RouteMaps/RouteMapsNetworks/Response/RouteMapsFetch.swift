@@ -85,13 +85,46 @@ session.dataTask(with: url) { (data,response,error) in
             for child_content in content {
                 //print(child_content)
                 let audio = child_content["audio"] as! [[String:Any]]
+                for element in audio {
+                    let uuid = element["uuid"] as! String
+                    print(uuid
+                    )
+                }
                 let images = child_content["images"] as! [[String:Any]]
                 print(audio)
-                print(images)
+                //print(images)
             }
             print(uuid)
         print(name)
             }
+  
+    } catch {
+        print(error)
+    }
+}.resume()
+}
+func FetchAudio () {
+    let urlString =
+    "https://media.izi.travel/3f41a4ab-3836-4daa-b5cb-b20a8f8235b5/565cf3a5-4cd0-4a20-a5ea-96cbe9f8b3d3.m4a?api_key=7c6c2db9-d237-4411-aa0e-f89125312494"
+//  content_provider
+//       uuid
+    //  name
+// content
+        // audio
+        // images
+// location
+guard let url = URL(string: urlString) else {return}
+let session = URLSession.shared
+session.dataTask(with: url) { (data,response,error) in
+    if let response = response {
+        print(response)
+    }
+    guard let data = data else {return}
+    do {
+        let json = try JSONSerialization.jsonObject(with: data, options: [])
+        print(json)
+        //print(preload)
+        print("json response decoder")
   
     } catch {
         print(error)
