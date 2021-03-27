@@ -7,6 +7,8 @@
 
 import Foundation
 
+var fetcStructure = [routePoint]()
+var fetchReference = [referncePoint]()
 
 func FetchRoute() {
     let urlString = "https://api.izi.travel/mtgobjects/e2737aad-9a17-4e5a-9964-6b7de3e12105?languages=ru,en&includes=all&except=translations,publisher,download&api_key=7c6c2db9-d237-4411-aa0e-f89125312494"
@@ -20,6 +22,7 @@ func FetchRoute() {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 let preload = json as! [[String:Any]]
+                var orderString = [String]()
                 //print(preload)
                 print("json response decoder")
                 for child in preload {
@@ -28,7 +31,6 @@ func FetchRoute() {
                     let category = child["category"] as! String
                     let duration = child["duration"] as! Double
                     let content = child["content"] as! [[String:Any]]
-                    
                     var title = String()
                     var children : [[String:Any]]!
                     var routeChild : [[String:Any]]!
@@ -36,17 +38,21 @@ func FetchRoute() {
                     for contenElement in content {
                          title = contenElement["title"] as! String
                          children = contenElement["children"] as! [[String:Any]]
+                        let playback = contenElement["playback"] as! [String:Any]
+                       // print(playback)
+                        let order = playback["order"] as! [String]
+                        orderString = order
+                        //print(order)
                         for child in children {
                             uuid = child["uuid"] as! String
-                            print(uuid)
+                         //   print(uuid)
                         }
                     }
-                    print(title)
-                    //print(content)
-                    print(duration)
-                    print(category)
-                    print(type)
-                    print(distance)
+                  //  print(title)
+                  //  print(distance)
+                  //  print(duration)
+                    fetcStructure.append(routePoint(uuid: uuid, nameRoute: title, distance: distance, duration: duration, orderPoint: orderString))
+                    print(fetcStructure)
                 }
             } catch {
                 print(error)
@@ -54,7 +60,7 @@ func FetchRoute() {
         }.resume()
     }
    
-func FetchChild () {
+func FetchChild (uuuidPoint : String) {
     let urlString = "https://api.izi.travel/mtgobjects/62497048-5472-4d9a-9599-472e3b3ab009?languages=ru,en&includes=all&except=translations,publisher,download&api_key=7c6c2db9-d237-4411-aa0e-f89125312494"
 //  content_provider
 //       uuid
@@ -73,6 +79,12 @@ session.dataTask(with: url) { (data,response,error) in
     do {
         let json = try JSONSerialization.jsonObject(with: data, options: [])
         let preload = json as! [[String:Any]]
+        var uuidAudio : String!
+        var namePoint : String!
+        var lat : Double!
+        var lon : Double!
+        var parrentUUID : String!
+        var uuidImage : String!
         //print(preload)
         print("json response decoder")
         for child in preload {
@@ -80,7 +92,11 @@ session.dataTask(with: url) { (data,response,error) in
             
             let uuid = content_provider["uuid"] as! String
             let name = content_provider["name"] as! String
+            namePoint = name
             let location = child["location"] as!  [String:Any]
+            lat = location["latitude"] as! Double
+            lon = location["longitude"] as! Double
+            print(location)
             let content = child["content"] as! [[String:Any]]
             for child_content in content {
                 //print(child_content)
@@ -89,13 +105,25 @@ session.dataTask(with: url) { (data,response,error) in
                     let uuid = element["uuid"] as! String
                     print(uuid
                     )
+                    uuidAudio = uuid
                 }
                 let images = child_content["images"] as! [[String:Any]]
+                for img in images {
+                    uuidImage = img["uuid"] as! String
+                }
                 print(audio)
                 //print(images)
             }
             print(uuid)
         print(name)
+            //uuidAudio
+            // parent uuidRoite
+            // lat
+            // lon
+            // name
+            // uuidImage
+            parrentUUID = uuuidPoint
+            fetchReference.append(referncePoint(uuidAudio: uuuidPoint, uuidImage: uuidImage, namePoint: namePoint, lat: lat, lon: lon, parentUUID: parrentUUID))
             }
   
     } catch {

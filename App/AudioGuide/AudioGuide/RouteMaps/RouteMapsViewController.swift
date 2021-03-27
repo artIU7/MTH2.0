@@ -10,7 +10,6 @@ import NMAKit
 import RealmSwift
 import AVFoundation
 
-let realms = RealmService.shared.realm
 
 class RouteMapsViewController: UIViewController {
     let mapView = NMAMapView()
@@ -25,10 +24,12 @@ class RouteMapsViewController: UIViewController {
         //  режим кастомизации карты (настройки пользователя)
         custumisationMap(type: true)
         //
-        //initrealm()
+        let realms = RealmService.shared.realm
+        //
         // грузим json
-        //FetchRoute()
-        FetchChild()
+        FetchRoute()
+        //initrealm()
+        FetchChild(uuuidPoint: "test")
 
         //FetchAudio()
         //playAudio()
@@ -72,6 +73,8 @@ class RouteMapsViewController: UIViewController {
                     //playButton!.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
                     playButton!.setTitle("Play", for: UIControl.State.normal)
                 }
+                showUUID()
+                print(fetchReference)
             }
     // добавляем карту на вьюху
     func loadUIMap() {
@@ -95,14 +98,30 @@ class RouteMapsViewController: UIViewController {
         mapView.set(geoCenter: NMAGeoCoordinates(latitude: 55.716908, longitude: 37.562283), animation: .linear)
     }
     func initrealm() {
-        var routes = try! Realm().objects(RouteModel.self)
-        if routes.isEmpty {
-            routes.map({
-                RealmService.shared.insertObject($0)
-        })
+
+        var dataRoute = try! Realm().objects(RouteModel.self)
+        print("data route \(dataRoute)")
+        if dataRoute.isEmpty  {
+            
+        //FetchRoute()
+        print(fetcStructure)
+        fetcStructure.map({
+        var routes = RouteModel(uuid: $0.uuid, nameRoute: $0.nameRoute, distance: $0.distance, duration: $0.duration)
+                
+                RealmService.shared.insertObject(routes)
+            })
         }
+        
     }
-   
+    func showUUID() {
+        initrealm()
+        let routesUUID = try! Realm().objects(RouteModel.self)
+        print("routes :: \(routesUUID)")
+        routesUUID.map ({
+            print($0.nameRoute)
+        }
+        )
+    }
     /*
     // MARK: - Navigation
 

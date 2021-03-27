@@ -1,14 +1,14 @@
 //
-//  RouteModel.swift
+//  Pointreference.swift
 //  AudioGuide
 //
-//  Created by Артем Стратиенко on 27.03.2021.
+//  Created by Артем Стратиенко on 28.03.2021.
 //
 
 import Foundation
 import RealmSwift
 
-class RouteModel: Object {
+class PointRefModel: Object {
     @objc dynamic var uuid = ""
     @objc dynamic var nameRoute = ""
     @objc dynamic var distance = 0.0
