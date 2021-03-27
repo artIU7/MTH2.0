@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B74A232F260F80F400ADCD8D /* RouteMapsSceneKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A232E260F80F400ADCD8D /* RouteMapsSceneKit.swift */; };
 		B7AE3B72260F70970008104B /* RouteMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE3B71260F70970008104B /* RouteMapsViewController.swift */; };
 		B7D26150260F5D1D003584FE /* RouteDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D26147260F5D1D003584FE /* RouteDetailPresenter.swift */; };
 		B7D26151260F5D1D003584FE /* RouteDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D26148260F5D1D003584FE /* RouteDetailWorker.swift */; };
@@ -25,6 +26,7 @@
 		5932EADA608A3B73A615BEB8 /* Pods-AudioGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.release.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.release.xcconfig"; sourceTree = "<group>"; };
 		697FD2BBB09DBF448AAC89B1 /* Pods_AudioGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3937A9DD037E38CD5FC60F2 /* Pods-AudioGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.debug.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.debug.xcconfig"; sourceTree = "<group>"; };
+		B74A232E260F80F400ADCD8D /* RouteMapsSceneKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapsSceneKit.swift; sourceTree = "<group>"; };
 		B7AE3B71260F70970008104B /* RouteMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapsViewController.swift; sourceTree = "<group>"; };
 		B7D26147260F5D1D003584FE /* RouteDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailPresenter.swift; sourceTree = "<group>"; };
 		B7D26148260F5D1D003584FE /* RouteDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailWorker.swift; sourceTree = "<group>"; };
@@ -60,6 +62,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B74A232D260F80D200ADCD8D /* RouteMapsSceneKit */ = {
+			isa = PBXGroup;
+			children = (
+				B74A232E260F80F400ADCD8D /* RouteMapsSceneKit.swift */,
+			);
+			path = RouteMapsSceneKit;
+			sourceTree = "<group>";
+		};
+		B74A2331260F81E500ADCD8D /* RouteMapsRotingMode */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RouteMapsRotingMode;
+			sourceTree = "<group>";
+		};
+		B74A2332260F820000ADCD8D /* RouteMapsGeometricHelper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RouteMapsGeometricHelper;
+			sourceTree = "<group>";
+		};
+		B74A2333260F821E00ADCD8D /* RouteMapsNetworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RouteMapsNetworks;
+			sourceTree = "<group>";
+		};
 		B7D26145260F5CC3003584FE /* RouteDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +107,10 @@
 		B7D26146260F5CD7003584FE /* RouteMaps */ = {
 			isa = PBXGroup;
 			children = (
+				B74A2333260F821E00ADCD8D /* RouteMapsNetworks */,
+				B74A2332260F820000ADCD8D /* RouteMapsGeometricHelper */,
+				B74A2331260F81E500ADCD8D /* RouteMapsRotingMode */,
+				B74A232D260F80D200ADCD8D /* RouteMapsSceneKit */,
 				B7AE3B71260F70970008104B /* RouteMapsViewController.swift */,
 			);
 			path = RouteMaps;
@@ -249,6 +284,7 @@
 				B7D26154260F5D1D003584FE /* RouteDetailViewController.swift in Sources */,
 				B7D26150260F5D1D003584FE /* RouteDetailPresenter.swift in Sources */,
 				B7D26151260F5D1D003584FE /* RouteDetailWorker.swift in Sources */,
+				B74A232F260F80F400ADCD8D /* RouteMapsSceneKit.swift in Sources */,
 				B7D26153260F5D1D003584FE /* RouteDetailModels.swift in Sources */,
 				B7D26156260F5D1D003584FE /* RouteDetailInteractor.swift in Sources */,
 				B7D26152260F5D1D003584FE /* RouteDetailRouter.swift in Sources */,

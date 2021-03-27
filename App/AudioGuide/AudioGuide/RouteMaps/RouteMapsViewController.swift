@@ -13,6 +13,8 @@ class RouteMapsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUIMap()
+        loadUISceneKit()
+        //  режим кастомизации карты (настройки пользователя)
         custumisationMap(type: true)
         // Do any additional setup after loading the view.
     }
