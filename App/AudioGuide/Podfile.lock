@@ -1,0 +1,30 @@
+PODS:
+  - HEREMaps (3.17.2)
+  - Realm (10.7.2):
+    - Realm/Headers (= 10.7.2)
+  - Realm/Headers (10.7.2)
+  - RealmSwift (10.7.2):
+    - Realm (= 10.7.2)
+  - SnapKit (4.2.0)
+
+DEPENDENCIES:
+  - HEREMaps
+  - RealmSwift
+  - SnapKit (~> 4.0)
+
+SPEC REPOS:
+  trunk:
+    - HEREMaps
+    - Realm
+    - RealmSwift
+    - SnapKit
+
+SPEC CHECKSUMS:
+  HEREMaps: 8ddbfefc38a2c18a273bee79d8aaeb793f6f758d
+  Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
+  RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+
+PODFILE CHECKSUM: 9d9531b64fca18958206c0fbfc09b9c60d28f2f9
+
+COCOAPODS: 1.10.1

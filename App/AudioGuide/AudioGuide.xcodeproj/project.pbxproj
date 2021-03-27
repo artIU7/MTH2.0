@@ -3,26 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7D26150260F5D1D003584FE /* RouteDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D26147260F5D1D003584FE /* RouteDetailPresenter.swift */; };
+		B7D26151260F5D1D003584FE /* RouteDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D26148260F5D1D003584FE /* RouteDetailWorker.swift */; };
+		B7D26152260F5D1D003584FE /* RouteDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D26149260F5D1D003584FE /* RouteDetailRouter.swift */; };
+		B7D26153260F5D1D003584FE /* RouteDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2614A260F5D1D003584FE /* RouteDetailModels.swift */; };
+		B7D26154260F5D1D003584FE /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2614B260F5D1D003584FE /* RouteDetailViewController.swift */; };
+		B7D26156260F5D1D003584FE /* RouteDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2614D260F5D1D003584FE /* RouteDetailInteractor.swift */; };
 		B7ECF6D0260F392E001E6F66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF6CF260F392E001E6F66 /* AppDelegate.swift */; };
 		B7ECF6D2260F392E001E6F66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF6D1260F392E001E6F66 /* SceneDelegate.swift */; };
 		B7ECF6D4260F392E001E6F66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ECF6D3260F392E001E6F66 /* ViewController.swift */; };
-		B7ECF6D7260F392E001E6F66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7ECF6D5260F392E001E6F66 /* Main.storyboard */; };
 		B7ECF6D9260F3932001E6F66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7ECF6D8260F3932001E6F66 /* Assets.xcassets */; };
-		B7ECF6DC260F3932001E6F66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7ECF6DA260F3932001E6F66 /* LaunchScreen.storyboard */; };
+		CFD15E95933B7B9AE9243C2F /* Pods_AudioGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697FD2BBB09DBF448AAC89B1 /* Pods_AudioGuide.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5932EADA608A3B73A615BEB8 /* Pods-AudioGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.release.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.release.xcconfig"; sourceTree = "<group>"; };
+		697FD2BBB09DBF448AAC89B1 /* Pods_AudioGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3937A9DD037E38CD5FC60F2 /* Pods-AudioGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.debug.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.debug.xcconfig"; sourceTree = "<group>"; };
+		B7D26147260F5D1D003584FE /* RouteDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailPresenter.swift; sourceTree = "<group>"; };
+		B7D26148260F5D1D003584FE /* RouteDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailWorker.swift; sourceTree = "<group>"; };
+		B7D26149260F5D1D003584FE /* RouteDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailRouter.swift; sourceTree = "<group>"; };
+		B7D2614A260F5D1D003584FE /* RouteDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailModels.swift; sourceTree = "<group>"; };
+		B7D2614B260F5D1D003584FE /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
+		B7D2614D260F5D1D003584FE /* RouteDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailInteractor.swift; sourceTree = "<group>"; };
 		B7ECF6CC260F392E001E6F66 /* AudioGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7ECF6CF260F392E001E6F66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7ECF6D1260F392E001E6F66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B7ECF6D3260F392E001E6F66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B7ECF6D6260F392E001E6F66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7ECF6D8260F3932001E6F66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B7ECF6DB260F3932001E6F66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7ECF6DD260F3932001E6F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -31,17 +43,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD15E95933B7B9AE9243C2F /* Pods_AudioGuide.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63A2435870B5F5047512944A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				697FD2BBB09DBF448AAC89B1 /* Pods_AudioGuide.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7D26145260F5CC3003584FE /* RouteDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B7D26147260F5D1D003584FE /* RouteDetailPresenter.swift */,
+				B7D26148260F5D1D003584FE /* RouteDetailWorker.swift */,
+				B7D26149260F5D1D003584FE /* RouteDetailRouter.swift */,
+				B7D2614A260F5D1D003584FE /* RouteDetailModels.swift */,
+				B7D2614B260F5D1D003584FE /* RouteDetailViewController.swift */,
+				B7D2614D260F5D1D003584FE /* RouteDetailInteractor.swift */,
+			);
+			path = RouteDetail;
+			sourceTree = "<group>";
+		};
+		B7D26146260F5CD7003584FE /* RouteMaps */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RouteMaps;
+			sourceTree = "<group>";
+		};
+		B7D2615C260F5D57003584FE /* RouteWelcome */ = {
+			isa = PBXGroup;
+			children = (
+				B7ECF6CF260F392E001E6F66 /* AppDelegate.swift */,
+				B7ECF6D1260F392E001E6F66 /* SceneDelegate.swift */,
+				B7ECF6D3260F392E001E6F66 /* ViewController.swift */,
+			);
+			path = RouteWelcome;
+			sourceTree = "<group>";
+		};
 		B7ECF6C3260F392E001E6F66 = {
 			isa = PBXGroup;
 			children = (
 				B7ECF6CE260F392E001E6F66 /* AudioGuide */,
 				B7ECF6CD260F392E001E6F66 /* Products */,
+				F6EFAD0B4B4A66140328ABAB /* Pods */,
+				63A2435870B5F5047512944A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +109,22 @@
 		B7ECF6CE260F392E001E6F66 /* AudioGuide */ = {
 			isa = PBXGroup;
 			children = (
-				B7ECF6CF260F392E001E6F66 /* AppDelegate.swift */,
-				B7ECF6D1260F392E001E6F66 /* SceneDelegate.swift */,
-				B7ECF6D3260F392E001E6F66 /* ViewController.swift */,
-				B7ECF6D5260F392E001E6F66 /* Main.storyboard */,
+				B7D2615C260F5D57003584FE /* RouteWelcome */,
+				B7D26146260F5CD7003584FE /* RouteMaps */,
+				B7D26145260F5CC3003584FE /* RouteDetail */,
 				B7ECF6D8260F3932001E6F66 /* Assets.xcassets */,
-				B7ECF6DA260F3932001E6F66 /* LaunchScreen.storyboard */,
 				B7ECF6DD260F3932001E6F66 /* Info.plist */,
 			);
 			path = AudioGuide;
+			sourceTree = "<group>";
+		};
+		F6EFAD0B4B4A66140328ABAB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3937A9DD037E38CD5FC60F2 /* Pods-AudioGuide.debug.xcconfig */,
+				5932EADA608A3B73A615BEB8 /* Pods-AudioGuide.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7ECF6E0260F3932001E6F66 /* Build configuration list for PBXNativeTarget "AudioGuide" */;
 			buildPhases = (
+				E9388B1E12CF8E8855F9AEB9 /* [CP] Check Pods Manifest.lock */,
 				B7ECF6C8260F392E001E6F66 /* Sources */,
 				B7ECF6C9260F392E001E6F66 /* Frameworks */,
 				B7ECF6CA260F392E001E6F66 /* Resources */,
+				FEB2D400772047ABA8F45E81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,13 +186,53 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7ECF6DC260F3932001E6F66 /* LaunchScreen.storyboard in Resources */,
 				B7ECF6D9260F3932001E6F66 /* Assets.xcassets in Resources */,
-				B7ECF6D7260F392E001E6F66 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E9388B1E12CF8E8855F9AEB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AudioGuide-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEB2D400772047ABA8F45E81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AudioGuide/Pods-AudioGuide-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AudioGuide/Pods-AudioGuide-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioGuide/Pods-AudioGuide-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7ECF6C8260F392E001E6F66 /* Sources */ = {
@@ -140,29 +242,16 @@
 				B7ECF6D4260F392E001E6F66 /* ViewController.swift in Sources */,
 				B7ECF6D0260F392E001E6F66 /* AppDelegate.swift in Sources */,
 				B7ECF6D2260F392E001E6F66 /* SceneDelegate.swift in Sources */,
+				B7D26154260F5D1D003584FE /* RouteDetailViewController.swift in Sources */,
+				B7D26150260F5D1D003584FE /* RouteDetailPresenter.swift in Sources */,
+				B7D26151260F5D1D003584FE /* RouteDetailWorker.swift in Sources */,
+				B7D26153260F5D1D003584FE /* RouteDetailModels.swift in Sources */,
+				B7D26156260F5D1D003584FE /* RouteDetailInteractor.swift in Sources */,
+				B7D26152260F5D1D003584FE /* RouteDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B7ECF6D5260F392E001E6F66 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B7ECF6D6260F392E001E6F66 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B7ECF6DA260F3932001E6F66 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B7ECF6DB260F3932001E6F66 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B7ECF6DE260F3932001E6F66 /* Debug */ = {
@@ -216,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,6 +372,7 @@
 		};
 		B7ECF6E1260F3932001E6F66 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3937A9DD037E38CD5FC60F2 /* Pods-AudioGuide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +392,7 @@
 		};
 		B7ECF6E2260F3932001E6F66 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5932EADA608A3B73A615BEB8 /* Pods-AudioGuide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
