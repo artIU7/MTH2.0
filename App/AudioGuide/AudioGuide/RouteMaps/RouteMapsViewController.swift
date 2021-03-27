@@ -16,6 +16,7 @@ class RouteMapsViewController: UIViewController {
     let mapView = NMAMapView()
     var player:AVPlayer?
     var playerItem:AVPlayerItem?
+    var playButton:UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class RouteMapsViewController: UIViewController {
         // грузим json
         //FetchRoute()
         FetchChild()
-        player!.play()
+
         //FetchAudio()
         //playAudio()
         //playSound(soundUrl: "https://media.izi.travel/3f41a4ab-3836-4daa-b5cb-b20a8f8235b5/ae9d8aef-8d13-416a-97a7-e6f63887061f.m4a?api_key=7c6c2db9-d237-4411-aa0e-f89125312494")
@@ -37,14 +38,41 @@ class RouteMapsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            
-           let url = URL(string: "https://s3.amazonaws.com/kargopolov/kukushka.mp3")
+           let url = URL(string: "https://media.izi.travel/3f41a4ab-3836-4daa-b5cb-b20a8f8235b5/ae9d8aef-8d13-416a-97a7-e6f63887061f.m4a?api_key=7c6c2db9-d237-4411-aa0e-f89125312494")
            let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
            player = AVPlayer(playerItem: playerItem)
            
            let playerLayer=AVPlayerLayer(player: player!)
            playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
            self.view.layer.addSublayer(playerLayer)
-       }
+        playButton = UIButton(type: UIButton.ButtonType.system) as UIButton
+                let xPostion:CGFloat = 50
+                let yPostion:CGFloat = 100
+                let buttonWidth:CGFloat = 150
+                let buttonHeight:CGFloat = 45
+                
+                playButton!.frame = CGRect(x: xPostion, y: yPostion, width: buttonWidth, height: buttonHeight)
+                playButton!.backgroundColor = UIColor.lightGray
+                playButton!.setTitle("Play", for: UIControl.State.normal)
+                playButton!.tintColor = UIColor.black
+                playButton!.addTarget(self, action: #selector(self.playButtonTapped(_:)), for: .touchUpInside)
+                
+                self.view.addSubview(playButton!)
+            }
+            
+            @objc func playButtonTapped(_ sender:UIButton)
+            {
+                if player?.rate == 0
+                {
+                    player!.play()
+                    //playButton!.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
+                    playButton!.setTitle("Pause", for: UIControl.State.normal)
+                } else {
+                    player!.pause()
+                    //playButton!.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
+                    playButton!.setTitle("Play", for: UIControl.State.normal)
+                }
+            }
     // добавляем карту на вьюху
     func loadUIMap() {
         view.addSubview(mapView)
@@ -84,33 +112,4 @@ class RouteMapsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    /*func playAudio()
-    {
-
-            // set URL of the sound
-            let soundURL = URL(string: "https://media.izi.travel/3f41a4ab-3836-4daa-b5cb-b20a8f8235b5/ae9d8aef-8d13-416a-97a7-e6f63887061f.m4a?api_key=7c6c2db9-d237-4411-aa0e-f89125312494")
-            
-            do
-            {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
-                
-                // check if audioPlayer is prepared to play audio
-                if (audioPlayer!.prepareToPlay())
-                {
-                    audioPlayer!.play()
-                }
-            }
-            catch
-            { print("error") }
-    }*/
-    //func playSound(soundUrl: String) {
-   //     let sound = URL(fileURLWithPath: soundUrl)
-   //     do {
-    //        let audioPlayer = try AVAudioPlayer(//(contentsOf: sound)
-    //        audioPlayer.prepareToPlay()
-    //        audioPlayer.play()
-    //    }catch let error {
-    //        print("Error: \(error.localizedDescription)")
-    //    }
-  //  }
 }
