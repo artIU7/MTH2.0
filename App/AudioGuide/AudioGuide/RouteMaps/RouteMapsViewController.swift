@@ -12,11 +12,27 @@ class RouteMapsViewController: UIViewController {
     let mapView = NMAMapView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMap()
+        loadUIMap()
+        custumisationMap(type: true)
         // Do any additional setup after loading the view.
     }
-    func loadMap() {
+    // добавляем карту на вьюху
+    func loadUIMap() {
         view.addSubview(mapView)
+        self.mapView.snp.makeConstraints { (marker) in
+            marker.top.equalTo(self.view).inset(0)
+            marker.left.right.equalTo(self.view).inset(0)
+            marker.bottom.equalTo(self.view).inset(0)
+        }
+    }
+    func custumisationMap( type : Bool ) {
+        if (type) {
+            mapView.positionIndicator.isVisible = true
+            mapView.mapScheme = NMAMapSchemeNormalNight
+        } else {
+            mapView.positionIndicator.isVisible = true
+            mapView.mapScheme = NMAMapSchemeNormalNight
+        }
     }
     func configMap() {
         mapView.set(geoCenter: NMAGeoCoordinates(latitude: 55.716908, longitude: 37.562283), animation: .linear)
