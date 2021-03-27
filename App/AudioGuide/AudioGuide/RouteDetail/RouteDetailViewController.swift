@@ -42,7 +42,7 @@ final class RouteDetailViewController: UIViewController {
   // MARK: - Private Methods
 
   private func configure() {
-    
+    let button = UIButton()
   }
   
   // MARK: - UI Actions
