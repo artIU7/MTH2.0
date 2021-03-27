@@ -91,6 +91,20 @@
 			path = RouteMapsNetworks;
 			sourceTree = "<group>";
 		};
+		B74A2334260F823800ADCD8D /* RouteMapsAudioKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RouteMapsAudioKit;
+			sourceTree = "<group>";
+		};
+		B74A2336260F827A00ADCD8D /* RouteARScene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RouteARScene;
+			sourceTree = "<group>";
+		};
 		B7D26145260F5CC3003584FE /* RouteDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +121,7 @@
 		B7D26146260F5CD7003584FE /* RouteMaps */ = {
 			isa = PBXGroup;
 			children = (
+				B74A2334260F823800ADCD8D /* RouteMapsAudioKit */,
 				B74A2333260F821E00ADCD8D /* RouteMapsNetworks */,
 				B74A2332260F820000ADCD8D /* RouteMapsGeometricHelper */,
 				B74A2331260F81E500ADCD8D /* RouteMapsRotingMode */,
@@ -148,8 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				B7D2615C260F5D57003584FE /* RouteWelcome */,
-				B7D26146260F5CD7003584FE /* RouteMaps */,
 				B7D26145260F5CC3003584FE /* RouteDetail */,
+				B7D26146260F5CD7003584FE /* RouteMaps */,
+				B74A2336260F827A00ADCD8D /* RouteARScene */,
 				B7ECF6D8260F3932001E6F66 /* Assets.xcassets */,
 				B7ECF6DD260F3932001E6F66 /* Info.plist */,
 			);
