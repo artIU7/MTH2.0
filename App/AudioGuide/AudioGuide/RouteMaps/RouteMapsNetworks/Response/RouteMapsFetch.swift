@@ -60,7 +60,7 @@ func FetchRoute() {
         }.resume()
     }
    
-func FetchChild (uuuidPoint : String) {
+func FetchChild (uuuidPoint : String, index : Int) {
     let urlString = "https://api.izi.travel/mtgobjects/\(uuuidPoint)?languages=ru,en&includes=all&except=translations,publisher,download&api_key=7c6c2db9-d237-4411-aa0e-f89125312494"
 //  content_provider
 //       uuid
@@ -124,7 +124,7 @@ session.dataTask(with: url) { (data,response,error) in
             // name
             // uuidImage
      
-        fetchReference.append(referncePoint(uuidProvider: uuidProvider, uuidAudio: uuuidPoint, uuidImage: uuidImage, namePoint: namePoint, lat: lat, lon: lon, parentUUID: parrentUUID))
+        fetchReference.append(referncePoint(uuidProvider: uuidProvider, uuidAudio: uuuidPoint, uuidImage: uuidImage, namePoint: namePoint, lat: lat, lon: lon, parentUUID: parrentUUID, order: index))
             
   
     } catch {

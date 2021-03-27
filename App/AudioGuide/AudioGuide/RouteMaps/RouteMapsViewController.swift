@@ -28,6 +28,20 @@ class RouteMapsViewController: UIViewController {
         //
         // грузим json
         FetchRoute()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [self] in
+            getUUID()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Int(1.5))) { [self] in
+            showUUID()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Int(2.5))) { [self] in
+            loadRouteRef()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Int(2.5))) { [self] in
+                        var refRoute = try! Realm().objects(PointRefModel.self)
+                        print("Ref :: \(refRoute)")
+                    }
+                }
+            }
+        }
+
         //initrealm()
      
 
@@ -39,9 +53,9 @@ class RouteMapsViewController: UIViewController {
     func getUUID() {
         for element in fetcStructure {
             let arrayReference = element.orderPoint
-            arrayReference.map({
-                                FetchChild(uuuidPoint: $0)
-            })
+            for i in 0 ... arrayReference.count - 1 {
+                FetchChild(uuuidPoint: arrayReference[i], index: i)
+            }
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -76,14 +90,11 @@ class RouteMapsViewController: UIViewController {
                     player!.play()
                     //playButton!.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
                     playButton!.setTitle("Pause", for: UIControl.State.normal)
-                    getUUID()
 
                 } else {
                     player!.pause()
                     //playButton!.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
                     playButton!.setTitle("Play", for: UIControl.State.normal)
-                    showUUID()
-                    loadRouteRef()
                 }
                 print(fetchReference)
             }
@@ -109,33 +120,26 @@ class RouteMapsViewController: UIViewController {
         mapView.set(geoCenter: NMAGeoCoordinates(latitude: 55.716908, longitude: 37.562283), animation: .linear)
     }
     func initrealm() {
-
         var dataRoute = try! Realm().objects(RouteModel.self)
         print("data route \(dataRoute)")
         if dataRoute.isEmpty  {
-            
         //FetchRoute()
-        print(fetcStructure)
         fetcStructure.map({
         var routes = RouteModel(uuid: $0.uuid, nameRoute: $0.nameRoute, distance: $0.distance, duration: $0.duration)
-                
-                RealmService.shared.insertObject(routes)
+            RealmService.shared.insertObject(routes)
             })
         }
-        
     }
     
     func loadRouteRef() {
         var refRoute = try! Realm().objects(PointRefModel.self)
         print("data ref \(refRoute)")
         if refRoute.isEmpty  {
-            
         //FetchRoute()
-        print(refRoute)
-        fetchReference.map({
-            var ref = PointRefModel(uuidProvider: $0.uuidProvider, uuidAudio: $0.uuidAudio, uuidImage: $0.uuidImage, namePoint: $0.namePoint, lat: $0.lat, lon: $0.lon, parentUUID: $0.parentUUID)
-                RealmService.shared.insertObject(ref)
-            })
+        for i in 0 ... fetchReference.count - 1 {
+                let ref = PointRefModel(uuidProvider: fetchReference[i].uuidProvider, uuidAudio: fetchReference[i].uuidAudio, uuidImage: fetchReference[i].uuidImage, namePoint: fetchReference[i].namePoint, lat: fetchReference[i].lat, lon: fetchReference[i].lon, parentUUID: fetchReference[i].parentUUID, order: fetchReference [i].order)
+                    RealmService.shared.insertObject(ref)
+            }
         }
     }
     func showUUID() {

@@ -34,10 +34,11 @@ struct referncePoint {
     var lat = 0.0
     var lon = 0.0
     var parentUUID = ""
+    var order = 0
     init() {
         
     }
-    init(uuidProvider : String,uuidAudio : String,uuidImage : String,namePoint : String,lat : Double,lon : Double,parentUUID : String) {
+    init(uuidProvider : String,uuidAudio : String,uuidImage : String,namePoint : String,lat : Double,lon : Double,parentUUID : String, order : Int) {
         self.uuidProvider = uuidProvider
         self.uuidAudio = uuidAudio
         self.uuidImage = uuidImage
@@ -45,6 +46,7 @@ struct referncePoint {
         self.lat = lat
         self.lon = lon
         self.parentUUID = parentUUID
+        self.order = order
     }
 }
 
