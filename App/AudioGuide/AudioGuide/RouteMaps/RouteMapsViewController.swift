@@ -20,7 +20,10 @@ class RouteMapsViewController: UIViewController {
         //  режим кастомизации карты (настройки пользователя)
         custumisationMap(type: true)
         //
-        initrealm()
+        //initrealm()
+        // грузим json
+        //FetchRoute()
+        FetchChild()
         // Do any additional setup after loading the view.
     }
     // добавляем карту на вьюху

@@ -9,11 +9,14 @@ import Foundation
 import RealmSwift
 
 class RouteModel: Object {
-    @objc dynamic var id = ""
+    @objc dynamic var uuid = ""
     @objc dynamic var nameRoute = ""
-    convenience init(id : String,nameRoute : String) {
+  //  @objc dynamic var category = ""
+  //  @objc dynamic var distance = ""
+  //  @objc dynamic var duration = ""
+    convenience init(uuid : String,nameRoute : String) {
         self.init()
-        self.id = id
+        self.uuid = uuid
         self.nameRoute = nameRoute
     }
   }
