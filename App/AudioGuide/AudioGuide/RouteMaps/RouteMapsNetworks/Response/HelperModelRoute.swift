@@ -27,6 +27,7 @@ struct routePoint {
 }
 
 struct referncePoint {
+    var uuidProvider = ""
     var uuidAudio = ""
     var uuidImage = ""
     var namePoint = ""
@@ -36,8 +37,8 @@ struct referncePoint {
     init() {
         
     }
-    init(uuidAudio : String,uuidImage : String,namePoint : String,lat : Double,lon : Double,parentUUID : String) {
-        
+    init(uuidProvider : String,uuidAudio : String,uuidImage : String,namePoint : String,lat : Double,lon : Double,parentUUID : String) {
+        self.uuidProvider = uuidProvider
         self.uuidAudio = uuidAudio
         self.uuidImage = uuidImage
         self.namePoint = namePoint
@@ -46,3 +47,5 @@ struct referncePoint {
         self.parentUUID = parentUUID
     }
 }
+
+

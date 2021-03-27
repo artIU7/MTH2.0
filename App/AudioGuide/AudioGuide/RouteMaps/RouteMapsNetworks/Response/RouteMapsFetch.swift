@@ -61,7 +61,7 @@ func FetchRoute() {
     }
    
 func FetchChild (uuuidPoint : String) {
-    let urlString = "https://api.izi.travel/mtgobjects/62497048-5472-4d9a-9599-472e3b3ab009?languages=ru,en&includes=all&except=translations,publisher,download&api_key=7c6c2db9-d237-4411-aa0e-f89125312494"
+    let urlString = "https://api.izi.travel/mtgobjects/\(uuuidPoint)?languages=ru,en&includes=all&except=translations,publisher,download&api_key=7c6c2db9-d237-4411-aa0e-f89125312494"
 //  content_provider
 //       uuid
     //  name
@@ -85,46 +85,47 @@ session.dataTask(with: url) { (data,response,error) in
         var lon : Double!
         var parrentUUID : String!
         var uuidImage : String!
+        var uuidProvider : String!
         //print(preload)
         print("json response decoder")
-        for child in preload {
-            let content_provider = child["content_provider"] as! [String:Any]
-            
-            let uuid = content_provider["uuid"] as! String
-            let name = content_provider["name"] as! String
-            namePoint = name
-            let location = child["location"] as!  [String:Any]
-            lat = location["latitude"] as! Double
-            lon = location["longitude"] as! Double
-            print(location)
-            let content = child["content"] as! [[String:Any]]
-            for child_content in content {
-                //print(child_content)
-                let audio = child_content["audio"] as! [[String:Any]]
-                for element in audio {
-                    let uuid = element["uuid"] as! String
-                    print(uuid
-                    )
-                    uuidAudio = uuid
-                }
-                let images = child_content["images"] as! [[String:Any]]
-                for img in images {
-                    uuidImage = img["uuid"] as! String
-                }
-                print(audio)
-                //print(images)
-            }
-            print(uuid)
-        print(name)
+        parrentUUID = uuuidPoint
+        let element = preload.first
+        let content_prov = element?["content_provider"] as! [String:Any]
+        let uuid = content_prov["uuid"] as! String
+        uuidProvider = uuid
+        let name = content_prov["name"] as! String
+        let location = element?["location"] as!  [String:Any]
+        lat = location["latitude"] as! Double
+        lon = location["longitude"] as! Double
+        let content = element!["content"] as! [[String:Any]]
+        let child_content = content.first
+        let audio = child_content!["audio"] as! [[String:Any]]
+        for element in audio {
+            let uuid = element["uuid"] as! String
+                uuidAudio = uuid
+        }
+        let images = child_content!["images"] as! [[String:Any]]
+        for img in images {
+            uuidImage = img["uuid"] as! String
+        }
+        namePoint = child_content!["title"] as! String
+
+        print(uuidProvider)
+        print(uuidAudio)
+        print(uuidImage)
+        print(namePoint)
+        print(lat)
+        print(lon)
+        print(parrentUUID)
             //uuidAudio
             // parent uuidRoite
             // lat
             // lon
             // name
             // uuidImage
-            parrentUUID = uuuidPoint
-            fetchReference.append(referncePoint(uuidAudio: uuuidPoint, uuidImage: uuidImage, namePoint: namePoint, lat: lat, lon: lon, parentUUID: parrentUUID))
-            }
+     
+        fetchReference.append(referncePoint(uuidProvider: uuidProvider, uuidAudio: uuuidPoint, uuidImage: uuidImage, namePoint: namePoint, lat: lat, lon: lon, parentUUID: parrentUUID))
+            
   
     } catch {
         print(error)

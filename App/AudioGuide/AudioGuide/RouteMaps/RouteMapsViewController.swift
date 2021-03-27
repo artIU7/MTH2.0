@@ -29,12 +29,20 @@ class RouteMapsViewController: UIViewController {
         // грузим json
         FetchRoute()
         //initrealm()
-        FetchChild(uuuidPoint: "test")
+     
 
         //FetchAudio()
         //playAudio()
         //playSound(soundUrl: "https://media.izi.travel/3f41a4ab-3836-4daa-b5cb-b20a8f8235b5/ae9d8aef-8d13-416a-97a7-e6f63887061f.m4a?api_key=7c6c2db9-d237-4411-aa0e-f89125312494")
         // Do any additional setup after loading the view.
+    }
+    func getUUID() {
+        for element in fetcStructure {
+            let arrayReference = element.orderPoint
+            arrayReference.map({
+                                FetchChild(uuuidPoint: $0)
+            })
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
@@ -68,12 +76,15 @@ class RouteMapsViewController: UIViewController {
                     player!.play()
                     //playButton!.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
                     playButton!.setTitle("Pause", for: UIControl.State.normal)
+                    getUUID()
+
                 } else {
                     player!.pause()
                     //playButton!.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
                     playButton!.setTitle("Play", for: UIControl.State.normal)
+                    showUUID()
+                    loadRouteRef()
                 }
-                showUUID()
                 print(fetchReference)
             }
     // добавляем карту на вьюху
@@ -112,6 +123,20 @@ class RouteMapsViewController: UIViewController {
             })
         }
         
+    }
+    
+    func loadRouteRef() {
+        var refRoute = try! Realm().objects(PointRefModel.self)
+        print("data ref \(refRoute)")
+        if refRoute.isEmpty  {
+            
+        //FetchRoute()
+        print(refRoute)
+        fetchReference.map({
+            var ref = PointRefModel(uuidProvider: $0.uuidProvider, uuidAudio: $0.uuidAudio, uuidImage: $0.uuidImage, namePoint: $0.namePoint, lat: $0.lat, lon: $0.lon, parentUUID: $0.parentUUID)
+                RealmService.shared.insertObject(ref)
+            })
+        }
     }
     func showUUID() {
         initrealm()
