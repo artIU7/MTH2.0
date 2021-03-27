@@ -14,12 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 let credentials = (
                   appId: "v6mF9RinlQEUA8F1Aasz",
                   appCode: "hxcXikkyoJkFzfhoTukwJw",
-                  licenseKey: "jZxwbU7U4gRlwVgAMV3V0A+nAO+gcFuSePxyf1HNFZnJWqJ7bLGw0vydDtpwLp7ZuoxYtDdQgxn40KIZuaSaG5BMtaIOZC6Qi15ZqtTPYKeM3vSItSN0ovgmGz3Cd35BzAwaqwMeaOS/c3bBN6o425Rdr7Fo7L/TCrCvCSe0NAwvEEsDRhKSFTTnuZFmmYiM3fKwp4cJiFlGvetuI/UGwBrHWfnInRlMmV7aMBZXpuADJQ7PXnY2Mt3sBKaz0blHryBQFZjUVgysvbYiYL8TnAgGPpFqVK85DbaEHNOU309kXuNtCaSITWE2mmWcZ9sfTru8xS3i+3Pw1c6MQlFNdWJ+yb32w48c2TaHTN1d/8M5CY5pYuZoQLkDPYbDjs0BpN6P/sL8KDcyvCl6Totkdehouze+EIe7C3tc1IQax8NVYbmOwpgbejnLwRl3D3b8nETtwvBPNjPwQ2KtvMB1acwL9hZ6bEjQSaw6vc+mzD6LhtXU2Ao+twHOTcqat5iI6eq4Gm9FnbHYbvGfpw+RWEghevkCi2MKaUgxyzr0mfsVdkJYCPUcdY3rBZ21dNvLZVVnt0QO0Cz3k0CL+W+9XTWaawivE6pA7wmIxJkYk8mHC0yowhNoOcuXo3S60UWGyiN/x0ZhdAV1yG1+w7rpGMIhBzPUFFf/qJaplJHB45k="
+                  licenseKey: "M/A7qvSX4Z69XCCr9KSaxLVdne4pnJNjFiyxiiG5Eeb3GnMUhk9Gsihx4VqyIM5NX/7UzgbZQXikPwCTJ1RZmHOvI9cdOMMTovAiH9tZXmqqutLA77la14/G7/swRKZ2KDoLN2cmGTwHcLS/4VIyGaMSj2kHC7P6CkROMJsgbcF4AUWBAvcuAEEH7RvgdScDyIu1/HURjQT7MNWHwe9LlLjIFHRy6u/jIuvK3oAPYtX0IQd1HSA6TqNMdY/tZfXC1tJjNlTu444o6GR4PtfYM7kJhhyL9T6GLdO7AfY04PnPAah6Cok32Jq+fiYc+Y0irA66NQwnjQN7IqwsX9qbR6MqcAwq7oI3YCwMsWAO4x6JjrolGG5JMPeQ+gSj9e9FRxeAruUeij3QEWGodobFdBYfpSAbusUY9dqh7da0ZZB79OqRFIBQ/tHKGnPDeEDv00xJNVAYAhTJ4lYl0CyoAufcOpbh2/TXSi0bC7Nx6u6nswTqwnOJm+9IQO8pYw71zqpSNodrOFBO2LB8jq8ZNkBH+SI+bNK7hpyWZgfJpiRhos5lfTlg29NCOkRUUSXMxoTV5QyfDASQddL1HjAQ8ltWbzUHYXagM0BWlj6z9bbzOIdLZftb2mjhkC6FPHkEu2gGZLTjzMx2sZMX+seocJtG9tkyTe3AKLXBXB62NPY="
               )
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        NMAApplicationContext.setAppId(credentials.appId,
+                                       appCode: credentials.appCode,
+                                       licenseKey: credentials.licenseKey)
         return true
     }
 

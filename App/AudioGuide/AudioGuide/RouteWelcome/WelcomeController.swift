@@ -44,6 +44,7 @@ class WelcomeController: UIViewController {
             marker.width.equalTo(200)
             marker.height.equalTo(40)
         }
+        startTour.addTarget(self, action: #selector(viewTours), for: .touchUpInside)
         // page controll
         let pageControl = UIPageControl()
             pageControl.frame = CGRect(x: 100, y: 100, width: 300, height: 300)
@@ -54,6 +55,18 @@ class WelcomeController: UIViewController {
             marker.bottom.equalTo(startTour).inset(40)
             marker.left.right.equalToSuperview().inset(30)
         }
+    }
+}
+//
+extension WelcomeController {
+    @objc func viewTours() {
+        let viewTours = RouteMapsViewController()
+        //startTest.modalTransitionStyle = .flipHorizontal
+        viewTours.modalPresentationStyle = .fullScreen
+        viewTours.modalTransitionStyle = .crossDissolve
+        show(viewTours, sender: self)
+        //present(startTest, animated: true, completion: nil)
+        print("Launch second controller")
     }
 }
 
