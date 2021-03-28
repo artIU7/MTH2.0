@@ -10,17 +10,21 @@ import NMAKit
 import RealmSwift
 import AVFoundation
 
+var tempPosition : CLLocationCoordinate2D!
 
-class RouteMapsViewController: UIViewController {
+class RouteMapsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+    var itemsToLoad = [String]()
     let mapView = NMAMapView()
     var player:AVPlayer?
     var playerItem:AVPlayerItem?
     var playButton:UIButton?
-
+    let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUIMap()
         loadUISceneKit()
+        //
+        configMap()
         //  режим кастомизации карты (настройки пользователя)
         custumisationMap(type: true)
         //
@@ -39,6 +43,10 @@ class RouteMapsViewController: UIViewController {
                         print("Ref :: \(refRoute)")
                     }
                 }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                self.initLocationManager()
+                self.startLocation()
             }
         }
 
@@ -106,6 +114,26 @@ class RouteMapsViewController: UIViewController {
             marker.left.right.equalTo(self.view).inset(0)
             marker.bottom.equalTo(self.view).inset(0)
         }
+        let subView = UIView()
+        let tableViewRoute = UITableView()
+        tableViewRoute.dataSource = self
+        tableViewRoute.delegate = self
+        tableViewRoute.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+        subView.addSubview(tableViewRoute)
+        subView.backgroundColor = #colorLiteral(red: 0.5482032924, green: 0.8896667527, blue: 0.9267322501, alpha: 0.8)
+        subView.layer.cornerRadius = 15
+        tableViewRoute.snp.makeConstraints { (marker) in
+            marker.height.equalTo(subView.frame.height)
+            marker.width.equalTo(subView.frame.height)
+            marker.bottom.top.equalToSuperview().inset(0)
+        }
+        view.addSubview(subView)
+        subView.snp.makeConstraints { (marker) in
+            marker.height.equalTo(view.frame.height/3)
+            marker.width.equalTo(view.frame.width)
+            marker.bottom.equalToSuperview().inset(-10)
+            
+        }
     }
     func custumisationMap( type : Bool ) {
         if (type) {
@@ -116,8 +144,14 @@ class RouteMapsViewController: UIViewController {
             mapView.mapScheme = NMAMapSchemeNormalNight
         }
     }
+    
     func configMap() {
-        mapView.set(geoCenter: NMAGeoCoordinates(latitude: 55.716908, longitude: 37.562283), animation: .linear)
+        self.mapView.set(geoCenter: NMAGeoCoordinates(latitude: 55.716908, longitude: 37.562283), animation: .linear)
+        self.mapView.positionIndicator.isVisible = true
+        self.mapView.positionIndicator.tracksCourse = true
+        let accuracyColor = #colorLiteral(red: 0.4004088239, green: 0.9419217957, blue: 0.8626950897, alpha: 0.4428563784)
+        self.mapView.positionIndicator.isAccuracyIndicatorVisible = false
+        self.mapView.positionIndicator.accuracyIndicatorColor = accuracyColor
     }
     func initrealm() {
         var dataRoute = try! Realm().objects(RouteModel.self)
@@ -161,3 +195,19 @@ class RouteMapsViewController: UIViewController {
     }
     */
 }
+extension RouteMapsViewController {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemsToLoad.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+             
+             cell.textLabel?.text = self.itemsToLoad[indexPath.row]
+             
+             return cell
+    }
+}
+
+extension RouteMapsViewController : NMAMapGestureDelegate,NMAMapViewDelegate {}
+extension RouteMapsViewController : CLLocationManagerDelegate {}
